@@ -21,13 +21,14 @@ public class HomePage {
 	@FindBy(linkText="New & Used Car Prices")
 	public WebElement newAndUsedCar;
 	
+
 public void hoverOver() {
 	WebElement element =carValues;
 	Actions actions =new Actions(driver);
-	
-	//actions.moveToElement(element).perform();
-	actions.moveToElement(element).build().perform();
+	actions.moveToElement(element).perform();
 	newAndUsedCar.click();
 }
+
+
 
 }
