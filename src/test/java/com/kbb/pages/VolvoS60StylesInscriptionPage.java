@@ -33,12 +33,21 @@ private WebDriver driver;
 	@FindBy(id="GetMyPrice")
 	public WebElement seeFairPrice;
 	
+	@FindBy(id="addedOptions")
+	public WebElement selectedOptionsPrice;
+	
 	
 	@FindBy(xpath="//input[@name='cbxOptionId8056137']")
 	public WebElement blindSpot;
 	
 	@FindBy(xpath="//input[@name='cbxOptionId8056116']")
 	public WebElement techPackage;
+	
+	@FindBy(xpath="//input[@name='cbxOptionId8056630']")
+	public WebElement climatePackage;
+	
+	@FindBy(xpath="//input[@name='cbxOptionId8056110']")
+	public WebElement conveniencePackage;
 	
 	
 	
@@ -98,6 +107,5 @@ private WebDriver driver;
 		JavascriptExecutor jse = (JavascriptExecutor)driver; 
 		jse.executeScript("var evt = document.createEvent('MouseEvents');" + "evt.initMouseEvent('click',true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0,null);" + "arguments[0].dispatchEvent(evt);", element);
 		
-	//	seeFairPrice.click();
 	}
 }

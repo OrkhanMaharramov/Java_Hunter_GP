@@ -15,14 +15,14 @@ private WebDriver driver;
 		PageFactory.initElements(driver, this);
 	}
 	
-//	@FindBy(xpath="//h1[@class='title-one']")
-//	public WebElement pageTitle;
+	@FindBy(xpath="//h1[@class='title-one']")
+	public WebElement pageTitle;
 	
-//	@FindBy(xpath="//p[@class='section-title']")
-//	public WebElement sectionTitle;
+	@FindBy(xpath="//p[@class='section-title']")
+	public WebElement sectionTitle;
 	
-//	@FindBy(xpath="//h2[@class='title-two js-tnt-control']")
-//	public WebElement lastTitle;
+	@FindBy(xpath="//h2[@class='title-two js-tnt-control']")
+	public WebElement lastTitle;
 	
 	
 	

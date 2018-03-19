@@ -1,6 +1,8 @@
 package com.kbb.pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoAlertPresentException;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -28,15 +30,17 @@ private WebDriver driver;
 	@FindBy(xpath="//a[@class='decline js-survey-close']")
 	public WebElement noThanksbutton;
 	
+	
 	@FindBy(xpath="//div[@class='title']")
 	public WebElement popUpTitle;
+	
 	
 	public int verifyPrice(WebElement element) {
 		int price=Integer.parseInt(element.getText().replaceAll(",", "").substring(1));
 		return price;
 	}
 	
-	public void choose2017() {
+	public void choose2017() { //we need to look at this one to handle POP UP MESSAGE!
 		
 		try {
 			if(noThanksbutton.isDisplayed() || popUpTitle.getText().contains("Your Opinion Counts!")) ;
@@ -47,12 +51,19 @@ private WebDriver driver;
 			noThanksbutton.click();
 			System.out.println("pop up isnot present");
 		}
-		
+	}	
 		
 	//	noThanksbutton.click();
+		
+	public void choose2017Last() {
+		WebElement element = year2017;
+		JavascriptExecutor jse = (JavascriptExecutor)driver; 
+		jse.executeScript("var evt = document.createEvent('MouseEvents');" + "evt.initMouseEvent('click',true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0,null);" + "arguments[0].dispatchEvent(evt);", element);
+		
+	}
 		
 		
 	}
 	
 
-}
+
