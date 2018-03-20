@@ -1,5 +1,5 @@
 package com.kbb.tests.search;
 
-public class TamaraSearchTests {
+public class S015ETE_S016ETE {
 
 }

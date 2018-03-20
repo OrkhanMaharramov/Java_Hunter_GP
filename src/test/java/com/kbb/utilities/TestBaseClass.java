@@ -25,21 +25,24 @@ public class TestBaseClass {
 
 	@AfterClass(alwaysRun = true)
 	public void tearDown() {
-		Driver.closeDriver();
+	//	Driver.closeDriver();
 	}
 	
-	@BeforeMethod(alwaysRun = true)
-	public void setUpMethod() {
-		driver = Driver.getDriver();
-		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-		driver.get(Configuration.getProperty("url"));
-	}
+	//WHEN WE RUN OUR TEST CASES WE NEED TO COMMAND IT OUT
+	//OTHERWISE JUST FIRST TEST CASE WILL PASS
 	
-	
-	@AfterMethod(alwaysRun=true)
-	public void tear() {
-		Driver.closeDriver();
-	
-	}
+//	@BeforeMethod(alwaysRun = true)
+//	public void setUpMethod() {
+//		driver = Driver.getDriver();
+//		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+//		driver.get(Configuration.getProperty("url"));
+//	}
+//	
+//	
+//	@AfterMethod(alwaysRun=true)
+//	public void tear() {
+//		Driver.closeDriver();
+//	
+//	}
 
 }

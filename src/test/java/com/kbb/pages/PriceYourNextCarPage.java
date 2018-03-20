@@ -24,6 +24,9 @@ private WebDriver driver;
 	@FindBy(xpath="//h2[@class='title-two js-tnt-control']")
 	public WebElement lastTitle;
 	
+	@FindBy(linkText="Truck")
+	public WebElement truckButton;
+	
 	
 	
 	@FindBy(id="makeDropdown0")
@@ -51,6 +54,10 @@ private WebDriver driver;
 		select.selectByVisibleText("S60");
 		nextButton.click();
 		
+	}
+	
+	public void clickButtons(WebElement element) {
+		element.click();
 	}
 	
 

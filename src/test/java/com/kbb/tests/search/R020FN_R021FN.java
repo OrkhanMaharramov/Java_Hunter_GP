@@ -1,5 +1,5 @@
 package com.kbb.tests.search;
 
-public class RafaelSearchTests {
+public class R020FN_R021FN {
 
 }
