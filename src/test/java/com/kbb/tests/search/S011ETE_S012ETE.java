@@ -3,6 +3,7 @@ package com.kbb.tests.search;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import com.kbb.pages.HomePage;
@@ -16,8 +17,8 @@ public class S011ETE_S012ETE extends TestBaseClass{
 	
 	@Test
 	public void testS011ETE() {
-		HomePage homepage=new HomePage(driver);
 		
+		HomePage homepage=new HomePage(driver);
 		String header="Car Shopping Made Easy";
 		assertEquals(header.replaceAll("\\s+",""), homepage.pageTitle.getText().replaceAll("\\s+","")); //step1
 		
@@ -37,8 +38,8 @@ public class S011ETE_S012ETE extends TestBaseClass{
 		assertTrue(driver.getTitle().contains("Trucks")); //step4 assertion
 		
 	//	(//ul[@class='contentlist make-list no-bull left']//a[@data-omn-partner='ford'])[1]
+	
 		S011ETE_S012ETE_Pages test11_12=new S011ETE_S012ETE_Pages(driver);
-		
 		test11_12.clickButton(test11_12.fordButton); //STEP 5
 		assertTrue(driver.getTitle().contains("Ford Pickup Models")); //step 5 assertion
 		assertTrue(test11_12.fordTrucksHeader.isDisplayed());
@@ -70,7 +71,7 @@ public class S011ETE_S012ETE extends TestBaseClass{
 		assertTrue(test11_12.choosenCar.isDisplayed()); //Step 16
 		assertTrue(test11_12.pricing.isDisplayed()); //Step 16
 		
-		VolvoS60PricingPage pricing=new VolvoS60PricingPage(driver); 
+		VolvoS60PricingPage pricing=new VolvoS60PricingPage(driver);
 		System.out.println(pricing.verifyPrice(test11_12.price)); //Step 17
 		assertTrue(0<pricing.verifyPrice(test11_12.price));
 		
@@ -79,7 +80,56 @@ public class S011ETE_S012ETE extends TestBaseClass{
 	//	assertTrue(test11_12.msrp.isDisplayed());
 		
 	}
-	  
+	
+	@Test
+	public void testS012ETE() {
+		
+		HomePage homepage=new HomePage(driver);
+		String header="Car Shopping Made Easy";
+		assertEquals(header.replaceAll("\\s+",""), homepage.pageTitle.getText().replaceAll("\\s+","")); //step1
+		
+		homepage.hoverOver();
+		
+		PriceYourNextCarPage priceyournextcar=new PriceYourNextCarPage(driver);
+		assertTrue(priceyournextcar.pageTitle.isDisplayed());
+	    assertTrue(priceyournextcar.sectionTitle.isDisplayed());
+		assertTrue(priceyournextcar.lastTitle.isDisplayed());
+		
+		priceyournextcar.selectCarCondition(); //step 4
+		assertTrue(driver.getTitle().contains("Used Cars, Used Car Prices,")); //step 4 assertion
+		
+		priceyournextcar.selectYear(priceyournextcar.yearDropdown, "2015"); //step 5
+		priceyournextcar.selectCarNewVersion(priceyournextcar.makeCar, "Audi"); //step 6
+		priceyournextcar.selectModelNewVersion(priceyournextcar.makeModel, "A7"); //step 7
+		
+		S011ETE_S012ETE_Pages test11_12=new S011ETE_S012ETE_Pages(driver);
+		test11_12.next.click();  //step 8
+		
+		
+		test11_12.sendZip(); 
+		assertTrue(driver.getTitle().contains("2015 Audi A7 Styles and Equipment")); //step 8 assertion
+		
+		test11_12.chooseButton(test11_12.chooseSedan4D); //step 9
+		assertTrue(driver.getTitle().contains("2015 Audi A7 Premium Plus")); //step 9 assertion
+		
+		test11_12.mileageInput.clear();
+		test11_12.mileageInput.sendKeys("30000"); //step 10
+		int mile=Integer.valueOf("30000");
+		assertEquals(mile, 30000, "values didnt match"); //step 10 assertion
+		
+		test11_12.chooseButton(test11_12.packages); //step 11
+		
+		test11_12.chooseButton(test11_12.coldWeather); //step 12
+		assertTrue(test11_12.coldWeather.isSelected()); //step 12 assertion
+		
+		test11_12.chooseButton(test11_12.choosePricebutton); //step 13
+		assertTrue(driver.getTitle().contains("2015 Audi A7 Premium Plus Sedan 4D Price Type and Condition")); //step 13 assertion
+		
+		test11_12.chooseButton(test11_12.chooseUsedPrice); //step 14
+		System.out.println(driver.getTitle());
+		assertTrue(driver.getTitle().contains("")); //step 14 assertion
+	}
+	
 	  
 	  
 	

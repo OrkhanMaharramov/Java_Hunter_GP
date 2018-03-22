@@ -75,6 +75,37 @@ private WebDriver driver;
 	@FindBy(id="msrpBox")
 	public WebElement msrp;
 	
+	//TEST CASE 12
+	
+	@FindBy(id="startMyResearchBtn")
+	public WebElement next;
+	
+	@FindBy(id="selectedZipCode")
+	public WebElement zip;
+	
+	@FindBy(id="enterzipsubmit")
+	public WebElement savebutton;
+	
+	@FindBy(xpath="//a[@data-selected-vehicle-styles='Premium Plus Sedan 4D']")
+	public WebElement chooseSedan4D;
+	
+	@FindBy(id="mileage")
+	public WebElement mileageInput;
+	
+	@FindBy(xpath="(//span[@class='btn-circle-plus'])[2]")
+	public WebElement packages;
+	
+	@FindBy(id="cbxOptionId6038490")
+	public WebElement coldWeather;
+	
+	@FindBy(linkText="Choose price type")
+	public WebElement choosePricebutton;
+	
+	@FindBy(linkText="Get used car price")
+	public WebElement chooseUsedPrice;
+	
+	
+	
 	public void chooseButton(WebElement element) {
 		//WebElement element = select2017button;
 		JavascriptExecutor jse = (JavascriptExecutor)driver; 
@@ -85,6 +116,13 @@ private WebDriver driver;
 	public void clickButton(WebElement element) {
 		element.click();
 	}
+	
+	
+	public void sendZip() { 
+		zip.sendKeys("22206");
+		savebutton.click();
+	}
+	
 	
 	
 	

@@ -41,6 +41,9 @@ public class PriceYourNextCarPage {
 	
 	@FindBy(id = "intentDropdown0")
 	public WebElement carCondition;
+	
+	@FindBy(id="yearDropdown0")
+	public WebElement yearDropdown;
 
 	public void selectCar() {
 		WebElement element = makeCar;
@@ -61,9 +64,27 @@ public class PriceYourNextCarPage {
 		Select select = new Select (element);
 		select.selectByVisibleText("Used");
 	}
+	
+	public void selectYear(WebElement element, String arg) {
+		Select select = new Select (element);
+		select.selectByVisibleText(arg);
+	}
 
 	public void clickButtons(WebElement element) {
 		element.click();
+	}
+	
+	//Talk with Tamara and change methods
+	public void selectCarNewVersion(WebElement element, String arg) {
+		Select select = new Select(element);
+		select.selectByVisibleText(arg);
+	}
+	
+	public void selectModelNewVersion(WebElement element, String arg) {
+		Select select = new Select(element);
+		select.selectByVisibleText(arg);
+		
+
 	}
 
 }
