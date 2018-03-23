@@ -104,6 +104,12 @@ private WebDriver driver;
 	@FindBy(linkText="Get used car price")
 	public WebElement chooseUsedPrice;
 	
+	@FindBy(xpath="//h1[@class='title-two']")
+	public WebElement verifyPricingTitle;
+	
+	@FindBy(xpath="//div[@class='legal-text']")
+	public WebElement mileageText;
+	
 	
 	
 	public void chooseButton(WebElement element) {

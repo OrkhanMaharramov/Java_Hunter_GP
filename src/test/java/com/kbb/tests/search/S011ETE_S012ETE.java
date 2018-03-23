@@ -3,6 +3,7 @@ package com.kbb.tests.search;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
@@ -75,9 +76,20 @@ public class S011ETE_S012ETE extends TestBaseClass{
 		System.out.println(pricing.verifyPrice(test11_12.price)); //Step 17
 		assertTrue(0<pricing.verifyPrice(test11_12.price));
 		
-	//	assertTrue(test11_12.ranges.isDisplayed());    
-	//	assertTrue(test11_12.invoives.isDisplayed());
-	//	assertTrue(test11_12.msrp.isDisplayed());
+	//	System.out.println(driver.getPageSource().contains("Fair Market Range"));
+	//	System.out.println(driver.getPageSource().contains("Fair Purchase Price"));
+	//	System.out.println(driver.getPageSource().contains("Invoice"));
+	//	System.out.println(driver.getPageSource().contains("MSRP"));
+		
+	//	System.out.println(driver.getPageSource().contains("31,463"));
+		
+		//Step 17 assertions
+		assertTrue(driver.findElement(By.tagName("html")).getText().contains("The Fair Market Range for this car in your area is $29,611 - $31,192"));
+		assertTrue(driver.findElement(By.tagName("html")).getText().contains("Fair Purchase Price $30,402"));
+		//it doesnt find INVOICE
+		assertTrue(driver.getPageSource().contains("MSRP"));
+		
+	
 		
 	}
 	
@@ -105,7 +117,6 @@ public class S011ETE_S012ETE extends TestBaseClass{
 		S011ETE_S012ETE_Pages test11_12=new S011ETE_S012ETE_Pages(driver);
 		test11_12.next.click();  //step 8
 		
-		
 		test11_12.sendZip(); 
 		assertTrue(driver.getTitle().contains("2015 Audi A7 Styles and Equipment")); //step 8 assertion
 		
@@ -126,8 +137,28 @@ public class S011ETE_S012ETE extends TestBaseClass{
 		assertTrue(driver.getTitle().contains("2015 Audi A7 Premium Plus Sedan 4D Price Type and Condition")); //step 13 assertion
 		
 		test11_12.chooseButton(test11_12.chooseUsedPrice); //step 14
-		System.out.println(driver.getTitle());
-		assertTrue(driver.getTitle().contains("")); //step 14 assertion
+		
+		assertTrue(test11_12.mileageText.getText().contains("Mileage: 30,000"), "mileage"); //step 15
+		assertTrue(driver.getTitle().contains("2015 Audi A7 Premium Plus Sedan 4D Used Car Prices"), "prices");  //step 14 assertion
+		assertTrue(test11_12.verifyPricingTitle.getText().contains("Used 2015 Audi A7 Premium Plus Sedan 4D"), "title"); //step 15 assertion
+		
+		//Step 16
+		
+		System.out.println(driver.getPageSource().contains("Fair Market Range"));
+		assertTrue(driver.getPageSource().contains("Fair Purchase Price")); //step 16 assertion
+		System.out.println(driver.getPageSource().contains("Monthly Payment Price"));
+		System.out.println(driver.getPageSource().contains("Typical Listing Price"));
+		
+		//there is no text about pricing. tagname and pagesource were used, but there is no related text. 
+			
+		String sa=driver.findElement(By.tagName("html")).getText();
+		System.out.println(sa);
+			
+			//Step 17 assertions
+		//	assertTrue(driver.findElement(By.tagName("html")).getText().contains("The Fair Market Range for this car in your area is $29,611 - $31,192"));
+		//	assertTrue(driver.findElement(By.tagName("html")).getText().contains("Fair Purchase Price $30,402"));
+			//it doesnt find INVOICE
+		//	assertTrue(driver.getPageSource().contains("MSRP"));
 	}
 	
 	  
