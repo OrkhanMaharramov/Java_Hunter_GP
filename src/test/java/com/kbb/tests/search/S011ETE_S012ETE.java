@@ -4,13 +4,12 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import com.kbb.pages.HomePage;
+import com.kbb.pages.PriceYourNextCarPage;
 import com.kbb.pages.S011ETE_S012ETE_Pages;
 import com.kbb.pages.VolvoS60PricingPage;
-import com.kbb.pages.PriceYourNextCarPage;
 import com.kbb.pages.VolvoS60SelectPage;
 import com.kbb.utilities.TestBaseClass;
 

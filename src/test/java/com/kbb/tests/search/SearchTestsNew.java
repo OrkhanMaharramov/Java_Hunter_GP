@@ -1,12 +1,10 @@
 package com.kbb.tests.search;
 
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
+import static org.testng.Assert.*;
 
 import java.util.Arrays;
 import java.util.List;
 
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import com.kbb.pages.HomePage;

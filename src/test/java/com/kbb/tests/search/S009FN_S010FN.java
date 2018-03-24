@@ -1,15 +1,10 @@
 package com.kbb.tests.search;
 
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
+import static org.testng.Assert.*;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
-import com.kbb.pages.HomePage;
-import com.kbb.pages.PriceYourNextCarPage;
 import com.kbb.pages.muhammadPages.homePage;
 import com.kbb.utilities.TestBaseClass;
 
