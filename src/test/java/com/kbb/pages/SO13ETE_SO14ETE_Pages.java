@@ -18,7 +18,7 @@ public class SO13ETE_SO14ETE_Pages {
 	@FindBy(xpath = "(//ul[@class='contentlist make-list no-bull left']//a[@data-omn-partner='nx'])[3]")
 	public WebElement ChryslerButton;
 
-	@FindBy(xpath = "(//div[@class='mod-content expanded-content UsedCar no-accordion']//a[@class='stop-propagation stop-propagation-small'])[4]")
+	@FindBy(linkText = "Chrysler Town & Country")
 	public WebElement chryslerTownCountry;
 
 	@FindBy(xpath = "//div[@class='years-area']//a[@href='#y-2007']")
@@ -34,13 +34,16 @@ public class SO13ETE_SO14ETE_Pages {
 	public WebElement chooseThisStyle;
 	
 	@FindBy(id="GetMyPrice")
-	public WebElement choosePriceType;
+	public WebElement choosePriceType; 
 	
 	@FindBy(xpath = "//input[@id='Price-type-retail']")
 	public WebElement buyFromDealer;
 	
 	@FindBy(xpath="(//a[contains(text(), 'Get used car price')])[1]")
 	public WebElement getUsedCarPrice;
+	
+	@FindBy(xpath="(//a[contains(text(), 'Get used car price')])[2]")
+	public WebElement getUsedCarPrice2;
 	
 	@FindBy(xpath="//div[@class='header-title-wrapper']")
 	public WebElement titleUsed2017;
@@ -56,6 +59,27 @@ public class SO13ETE_SO14ETE_Pages {
 	
 	@FindBy(linkText="No, thanks")
 	public WebElement noThanksPopUp;
+	
+	//Get your Used Car Price Page
+	
+	@FindBy(xpath="(//div [@class=\"mod-category-inner\"])[1]")
+	public WebElement sedanButton;
+	
+	@FindBy (css="[data-selected-vehicle-styles='Hybrid Sedan 4D']")
+	public WebElement selectButton;
+	//data-selected-vehicle-styles
+	
+	@FindBy(id="mileage")
+	public WebElement mileage;
+	
+	@FindBy (id="cbxOptionId5224097")
+	public WebElement radioButtonHyb;
+	
+	
+	//Get your Used Car price options
+	
+	@FindBy (xpath ="(//span[@class='btn-circle-plus'])[1]")
+	public WebElement powerTrainButton;
 
 	public void chooseButton(WebElement element) {
 		// WebElement element = selectYear2017;
