@@ -3,6 +3,7 @@ package com.kbb.tests.search;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
@@ -54,21 +55,23 @@ public class S009FN_S010FN extends TestBaseClass {
 		page.clickSave.click();
 		
 		assertEquals(page.getYourUsedCarPriceDisplayed.getText(), "Get Your Used Car Price");
-		//assertEquals(page.yourSelectedCarIsDisplayed.getText(), "Titanium Sedan 4D");
+		assertEquals(new homePage().yourSelectedCarIsDisplayed.getText(), "Titanium Sedan 4D");
 		
 		page.clickChooseThisStyle.click();
 		
-		page.getYourUsedCarPriceDisplayed.isDisplayed();
-		page.carNameIsDisplayed.isDisplayed();
-		page.carStyleIsDisplayed.isDisplayed();
-		page.carMileageIsDisplayed.isDisplayed();
+		assertTrue(page.getYourUsedCarPriceDisplayed.isDisplayed());
+		assertTrue(page.carNameIsDisplayed.isDisplayed());
+		assertTrue(page.carStyleIsDisplayed.isDisplayed());
+		assertTrue(page.carMileageIsDisplayed.isDisplayed());
 		
 		page.carMileageIsDisplayed.clear();
 		page.carMileageIsDisplayed.sendKeys("0000");
-		//assertTrue(page.carMileageIsDisplayed2.isDisplayed());
+		assertEquals(page.carMileageIsDisplayed2.getAttribute("value"),"0000");
 		
-		page.clickChoosePriceType.click();
-		assertTrue(page.enterValidMileage.isDisplayed());
+		page.scrollDown(page.clickChoosePriceType);
+						
+		assertTrue(new homePage().enterValidMileage.isDisplayed());
+	
 	}
 
 }

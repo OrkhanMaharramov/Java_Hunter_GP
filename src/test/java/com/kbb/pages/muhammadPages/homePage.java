@@ -1,5 +1,6 @@
 package com.kbb.pages.muhammadPages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -80,12 +81,11 @@ public class homePage {
 	
 	@FindBy(xpath="//h1[@class='title white with-sub']")
 	public WebElement getYourUsedCarPriceDisplayed;
-	
-	/////   ???????????????????????
-	@FindBy(xpath="//div[@class='style-name section-title'][2]")
+						 
+	@FindBy(xpath="//div[contains(text(), 'Titanium Sedan 4D')]")
 	public WebElement yourSelectedCarIsDisplayed;
 	
-	@FindBy(xpath="//a[@class='right btn-main-cta']")
+	@FindBy(xpath="//div[contains(text(), 'Titanium Sedan 4D')]/../a")
 	public WebElement clickChooseThisStyle;
 	
 	@FindBy(xpath="//h2[@class='section-title white with-sub']")
@@ -97,20 +97,20 @@ public class homePage {
 	@FindBy(xpath="//input[@value='6790']")
 	public WebElement carMileageIsDisplayed;
 	
-	/// ????????????????????
-	@FindBy(xpath="//input[@data-value='0000']")
+	@FindBy(id="mileage")
 	public WebElement carMileageIsDisplayed2;
 	
-	
-	//a[@href='/ford/fusion/2018/se-hybrid-sedan-4d/valuetype/?vehicleid=430582&intent=buy-used&pricetype=cpo']
-	//a[@class='btn-main-cta']
-	@FindBy(xpath="//a[text()='Choose price type']")
+	@FindBy(id="GetMyPrice")
 	public WebElement clickChoosePriceType;
 	
-	@FindBy(xpath="//div[@id='mileage-error']")
+	@FindBy(id="mileage-error")
 	public WebElement enterValidMileage;
 	
-	
+	public void scrollDown(WebElement element) {
+		JavascriptExecutor jsExecuter = (JavascriptExecutor) driver;
+		jsExecuter.executeScript("arguments[0].scrollIntoView(true)", element);
+		jsExecuter.executeScript("arguments[0].click();", element);
+	}
 	
 	
 	
