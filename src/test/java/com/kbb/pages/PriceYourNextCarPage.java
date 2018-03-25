@@ -51,6 +51,22 @@ public class PriceYourNextCarPage {
 		select.selectByVisibleText("Volvo");
 
 	}
+	
+	
+	public void selectCarDynamic(String m) {
+		WebElement element = makeCar;
+		Select select = new Select(element);
+		select.selectByVisibleText(m);
+
+	}
+	
+	public void selectYear(String y) {
+		WebElement element = yearDropdown;
+		Select select = new Select(element);
+		select.selectByVisibleText(y);
+
+	}
+	
 
 	public void selectModel() {
 		WebElement element = makeModel;
@@ -59,11 +75,31 @@ public class PriceYourNextCarPage {
 		nextButton.click();
 
 	}
+	
+	public void selectModelDynamic(String m) {
+		WebElement element = makeModel;
+		Select select = new Select(element);
+		select.selectByVisibleText(m);
+		nextButton.click();
+
+	}
+	
+	
+	
 	public void selectCarCondition() {
 		WebElement element=carCondition;
 		Select select = new Select (element);
 		select.selectByVisibleText("Used");
 	}
+	
+	public void selectCarConditionDynamic(String s) {
+		WebElement element=carCondition;
+		Select select = new Select (element);
+		select.selectByVisibleText(s);
+	}
+	
+	
+	
 	
 	public void selectYear(WebElement element, String arg) {
 		Select select = new Select (element);

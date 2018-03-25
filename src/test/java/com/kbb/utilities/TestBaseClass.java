@@ -19,7 +19,8 @@ public class TestBaseClass {
 	@BeforeClass(alwaysRun = true)
 	public void setUp() {
 		driver = Driver.getDriver();
-		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		driver.manage().window().fullscreen();
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.get(Configuration.getProperty("url"));
 	}
 

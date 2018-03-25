@@ -66,6 +66,9 @@ public class HomePage {
 
 	@FindBy(id = "modelDropdown0")
 	public WebElement model;
+	
+	@FindBy(css= "#startMyResearchBtn")
+	public WebElement nextButton;
 
 	public List<String> getAllModel() {
 		Select select = new Select(model);
@@ -79,6 +82,17 @@ public class HomePage {
 		}
 		// System.out.println(options);
 		return options;
+	}
+	
+	public void selectMakeByText(String string) {
+		Select select = new Select(make);
+		select.selectByVisibleText(string);
+		
+	}
+
+	public void selectModel(String string) {
+		Select select = new Select(model);
+		select.selectByVisibleText(string);
 	}
 
 }

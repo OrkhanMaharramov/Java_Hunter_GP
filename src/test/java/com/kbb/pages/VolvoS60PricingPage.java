@@ -36,7 +36,7 @@ private WebDriver driver;
 	
 	
 	public int verifyPrice(WebElement element) {
-		int price=Integer.parseInt(element.getText().replaceAll(",", "").substring(1));
+		int price=Integer.parseInt(element.getText().substring(1).replace(",", ""));
 		return price;
 	}
 	
