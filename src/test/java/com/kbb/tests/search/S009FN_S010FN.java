@@ -1,6 +1,7 @@
 package com.kbb.tests.search;
 
-import static org.testng.Assert.*;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
@@ -67,6 +68,34 @@ public class S009FN_S010FN extends TestBaseClass {
 						
 		assertTrue(new homePage().enterValidMileage.isDisplayed());
 	
+	}
+	
+	
+	@Test
+	public void testS010FN() throws InterruptedException {
+		
+		assertEquals(page.pageTitle.getText(), "Car Shopping\nMade Easy");
+		
+		Actions action = new Actions(driver);
+		action.moveToElement(page.hoverOver).perform();
+		
+		assertEquals(page.data1.getText(), "New & Used Car Prices");
+		assertEquals(page.data2.getText(), "Trade-in & Private Party Values");
+		assertEquals(page.data3.getText(), "Instant Cash Offer");
+		
+		page.data1.click();
+		
+		page.makeBox.click();
+		page.selectCar.click();
+		page.modelBox.click();
+		page.selectModel.click();
+		page.clickNextTest2.click();
+		page.zipcodeBox.sendKeys("22031");
+		page.clickSave.click();
+		
+		// rest of the test case is written wrongly so could go beyond the steps above
+		
+		
 	}
 
 }
