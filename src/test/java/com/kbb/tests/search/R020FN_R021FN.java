@@ -57,6 +57,7 @@ public class R020FN_R021FN extends TestBaseClass {
 		
 		// WE FOUND A DEFECT (there is no point of comparing same cars)
 		
+		
 
 	}
 

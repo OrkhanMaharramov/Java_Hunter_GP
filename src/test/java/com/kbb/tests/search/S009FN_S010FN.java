@@ -83,6 +83,7 @@ public class S009FN_S010FN extends TestBaseClass {
 		assertEquals(page.data2.getText(), "Trade-in & Private Party Values");
 		assertEquals(page.data3.getText(), "Instant Cash Offer");
 		
+		
 		page.data1.click();
 		
 		page.makeBox.click();
