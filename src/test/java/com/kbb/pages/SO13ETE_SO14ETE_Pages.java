@@ -26,60 +26,73 @@ public class SO13ETE_SO14ETE_Pages {
 
 	@FindBy(xpath = "//h2[contains(text(),'Select a Year')] ")
 	public WebElement selectYearHeader;
-	
-	@FindBy(xpath="//a[contains(text(),'Select 2007')]")
+
+	@FindBy(xpath = "//a[contains(text(),'Select 2007')]")
 	public WebElement select2017;
-	
-	@FindBy(xpath="(//a[@class='right btn-main-cta'])[1]")
+
+	@FindBy(xpath = "(//a[@class='right btn-main-cta'])[1]")
 	public WebElement chooseThisStyle;
-	
-	@FindBy(id="GetMyPrice")
-	public WebElement choosePriceType; 
-	
+
+	@FindBy(id = "GetMyPrice")
+	public WebElement choosePriceType;
+
 	@FindBy(xpath = "//input[@id='Price-type-retail']")
 	public WebElement buyFromDealer;
-	
-	@FindBy(xpath="(//a[contains(text(), 'Get used car price')])[1]")
+
+	@FindBy(xpath = "(//a[contains(text(), 'Get used car price')])[1]")
 	public WebElement getUsedCarPrice;
-	
-	@FindBy(xpath="(//a[contains(text(), 'Get used car price')])[2]")
+
+	@FindBy(xpath = "(//a[contains(text(), 'Get used car price')])[2]")
 	public WebElement getUsedCarPrice2;
-	
-	@FindBy(xpath="//div[@class='header-title-wrapper']")
+
+	@FindBy(xpath = "//div[@class='header-title-wrapper']")
 	public WebElement titleUsed2017;
-	
-	@FindBy(css="[text-anchor][data-reactid='55']")
+
+	@FindBy(css = "[text-anchor][data-reactid='55']")
 	public WebElement fairMarketRange;
-	
-	@FindBy(css="[text-anchor][data-reactid='50']")
+
+	@FindBy(css = "[text-anchor][data-reactid='50']")
 	public WebElement fairPurchasePriceAndMonthlyPayment;
-	
-	@FindBy(css="[text-anchor][data-reactid='61']")
+
+	@FindBy(css = "[text-anchor][data-reactid='61']")
 	public WebElement typicalListingPrice;
-	
-	@FindBy(linkText="No, thanks")
-	public WebElement noThanksPopUp;
-	
-	//Get your Used Car Price Page
-	
-	@FindBy(xpath="(//div [@class=\"mod-category-inner\"])[1]")
+
+	// Get your Used Car Price Page
+
+	@FindBy(xpath = "(//div [@class=\"mod-category-inner\"])[1]")
 	public WebElement sedanButton;
-	
-	@FindBy (css="[data-selected-vehicle-styles='Hybrid Sedan 4D']")
+
+	@FindBy(css = "[data-selected-vehicle-styles='Hybrid Sedan 4D']")
 	public WebElement selectButton;
-	//data-selected-vehicle-styles
-	
-	@FindBy(id="mileage")
+	// data-selected-vehicle-styles
+
+	@FindBy(id = "mileage")
 	public WebElement mileage;
-	
-	@FindBy (id="cbxOptionId5224097")
+
+	@FindBy(id = "cbxOptionId5224097")
 	public WebElement radioButtonHyb;
-	
-	
-	//Get your Used Car price options
-	
-	@FindBy (xpath ="(//span[@class='btn-circle-plus'])[1]")
+
+	@FindBy(xpath = "//h1[@class='title-two']")
+	public WebElement priceHeaderChrysler;
+
+	@FindBy(xpath = "//h1[@class='title-two']")
+	public WebElement priceHeaderHonda;
+
+	// h1[@class='title-two']
+
+	@FindBy(xpath = "(//span[@class='btn-circle-plus'])[1]")
 	public WebElement powerTrainButton;
+
+	@FindBy(linkText = "No, thanks")
+	public WebElement noThanks;
+
+	public void feedbackPopUp(WebElement element) {
+		try {
+			element.click();
+		} catch (Exception e) {
+
+		}
+	}
 
 	public void chooseButton(WebElement element) {
 		// WebElement element = selectYear2017;
@@ -92,10 +105,13 @@ public class SO13ETE_SO14ETE_Pages {
 	public void clickButton(WebElement element) {
 		element.click();
 	}
-	
+
 	public int verifyPrice(WebElement element) {
-		int price=Integer.parseInt(element.getText().replaceAll(",", "").substring(1));
+		int price = Integer.parseInt(element.getText().replaceAll(",", "").substring(1));
 		return price;
 	}
 
-}
+
+		
+	}
+
